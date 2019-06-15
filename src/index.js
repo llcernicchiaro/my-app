@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
-let element = React.createElement('h1', { className: 'greeting' }, 'Hello, world!');
+let element = React.createElement('h1', { className: 'greeting' }, 'Hello, Lorenzo!');
 ReactDOM.render(element, document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
