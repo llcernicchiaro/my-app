@@ -1,25 +1,37 @@
 import React from 'react';
-import Container from 'react-bootstrap/Container';
-import ListGroup from 'react-bootstrap/ListGroup';
-import Col from 'react-bootstrap/Col';
-import Row from 'react-bootstrap/Row';
+import PlayerItem from './PlayerItem';
+import Players from './Players';
 
-function PlayerList() {
-    return (
-        <Container className="PlayersList">
-            <Row>
-                <Col md={{ span: 6, offset: 3 }}>
-                    <ListGroup>
-                        <ListGroup.Item>Cras justo odio</ListGroup.Item>
-                        <ListGroup.Item>Dapibus ac facilisis in</ListGroup.Item>
-                        <ListGroup.Item>Morbi leo risus</ListGroup.Item>
-                        <ListGroup.Item>Porta ac consectetur ac</ListGroup.Item>
-                        <ListGroup.Item>Vestibulum at eros</ListGroup.Item>
-                    </ListGroup>
-                </Col>
-            </Row>
-        </Container>
-    );
+// Bootstrap React
+import Table from 'react-bootstrap/Table';
+
+class PlayerList extends React.Component {
+    constructor() {
+        super();
+        this.state = {
+            players: Players
+        }
+    }
+
+    render() {
+        const playersComponent = this.state.players.map(player => <PlayerItem key={player.id} player={player} />);
+        return (
+            <Table striped bordered hover>
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Nome</th>
+                        <th>Idade</th>
+                        <th>Posição</th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                        {playersComponent}
+                </tbody>
+            </Table>
+        );
+    }
 }
 
 export default PlayerList;
